@@ -15,7 +15,7 @@ before_action :set_product, only: [:edit, :update, :show, :destroy]
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "Product was successfully created"
+      flash[:success] = "Product was successfully created"
       redirect_to product_path(@product)
     else
       render 'new'
@@ -24,7 +24,7 @@ before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def update
     if @product.update(product_params)
-      flash[:notice] = "Product was successfully updated"
+      flash[:success] = "Product was successfully updated"
       redirect_to product_path(@product)
     else
       render 'edit'
@@ -37,7 +37,7 @@ before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def destroy
     @product.destroy
-    flash[:notice] = "Product was successfully deleted"
+    flash[:danger] = "Product was successfully deleted"
     redirect_to products_path
   end
 
