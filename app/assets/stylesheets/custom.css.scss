@@ -17,6 +17,10 @@ $navbar-default-bg: #e60000;
   text-decoration: none;
 }
 
+.center {
+  text-align: center;
+}
+
 .jumbotron {
   // background-image: asset-url('new_cover_page.jpg');
 }
@@ -27,6 +31,15 @@ $navbar-default-bg: #e60000;
   margin-bottom: 30px;
   letter-spacing: -1px;
   font-weight: bold;
+}
+
+.product-actions {
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
+}
+
+.description {
+  margin-top: 0;
 }
 
 footer {
