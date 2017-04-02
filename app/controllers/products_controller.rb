@@ -14,6 +14,7 @@ before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def create
     @product = Product.new(product_params)
+    @product.user = User.last
     if @product.save
       flash[:success] = "Product was successfully created"
       redirect_to product_path(@product)
