@@ -16,7 +16,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def create
     @product = Product.new(product_params)
-    @product.user = User.last
+    @product.user = current_user
     if @product.save
       flash[:success] = "Product was successfully created"
       redirect_to product_path(@product)
