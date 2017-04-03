@@ -13,8 +13,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to Rocket Oil Supply #{@user.username}"
-      redirect_to products_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -38,7 +39,8 @@ class UsersController < ApplicationController
   end
 
   def vendors
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.all
+    # @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   private
