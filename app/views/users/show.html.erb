@@ -1,9 +1,9 @@
-<div align="center">
-  <h1>Products</h1>
-</div>
+<h1 align="center"><%= @user.username %></h1>
+
+<h4 align="center">Products for <%= @user.username %></h4>
 
 <div align="center">
-  <% @products.each do |product| %>
+  <% @user.products.each do |product| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <div class="well well-lg">
