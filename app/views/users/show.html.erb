@@ -1,9 +1,12 @@
 <h1 align="center"><%= @user.username %></h1>
 
+<% if @user.products.count > 0 %>
 <h4 align="center">Products for <%= @user.username %></h4>
+<% end %>
 
 <div align="center">
-  <% @user.products.each do |product| %>
+  <%= will_paginate @user_products %>
+  <% @user_products.each do |product| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <div class="well well-lg">
@@ -25,4 +28,5 @@
       </div>
     </div>
   <% end %>
+  <%= will_paginate @user_products %>
 </div>

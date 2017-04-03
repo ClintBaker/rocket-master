@@ -1,13 +1,5 @@
 <div align="center">
-  <h1>Products</h1>
-</div>
-
-<div align="center">
-  <%= will_paginate %>
-</div>
-
-<div align="center">
-  <% @products.each do |product| %>
+  <% @obj.products.each do |product| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <div class="well well-lg">
@@ -29,8 +21,4 @@
       </div>
     </div>
   <% end %>
-</div>
-
-<div align="center">
-  <%= will_paginate %>
 </div>
