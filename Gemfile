@@ -13,9 +13,12 @@ gem 'rails', '~> 5.0.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+# gem 'pg'
+# gem 'rails_12factor'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'will_paginate', '~> 3.1.0'
-gem 'bootstrap-will_paginate' 
+gem 'bootstrap-will_paginate'
 
 gem 'bcrypt', '~> 3.1.7'
 # Use SCSS for stylesheets
@@ -57,8 +60,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
