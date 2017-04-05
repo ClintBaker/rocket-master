@@ -18,8 +18,6 @@
             <%= truncate(product.description, length: 100) %>
             <div class="product-meta-details">
               <small><%= product.user.username if product.user %>
-              <%= time_ago_in_words(product.created_at) %> ago,
-              last updated: <%= time_ago_in_words(product.updated_at) %> ago
             </small>
             </div>
           </div>
