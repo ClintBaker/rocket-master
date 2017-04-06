@@ -4,6 +4,9 @@
   <div align="center">
     <strong>Description:</strong>
       <%= simple_format(@product.description) %>
+      <% if @product.categories.any? %>
+        <p>Categories: <%= render @product.categories %></p>
+      <% end %>
     <div class="product-actions">
       <% if @product.user %>
       <small>

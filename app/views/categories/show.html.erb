@@ -1,1 +1,37 @@
-<h1>Category</h1>
+<h1 align="center"><%= @category.name %></h1>
+
+<div align="center">
+  <%= will_paginate @category_products %>
+</div>
+
+<div align="center">
+  <% @category_products.each do |product| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="product-title">
+            <%= link_to product.title, product_path(product) %>
+          </div>
+          <div class="product-body">
+            <%= truncate(product.description, length: 100) %>
+            <div class="product-meta-details">
+              <small><%= product.user.username if product.user %>
+            </small>
+            </div>
+          </div>
+          <% if product.categories.any? %>
+          <p>Categories: <%= render product.categories %></p>
+          <% end %>
+          <% if logged_in? && (current_user == product.user || current_user.admin?) %>
+          <%= link_to 'Edit product', edit_product_path(product), class: "btn btn-xs btn-primary" %>
+          <%= link_to 'Delete this product', product_path(product), method: :delete, data: { confirm: "Are you sure you want to delete this product?" }, class: "btn btn-xs btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div align="center">
+  <%= will_paginate @category_products%>
+</div>
