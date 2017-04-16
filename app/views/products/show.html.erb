@@ -7,6 +7,13 @@
   <div align="center">
     <strong>Description:</strong>
       <%= simple_format(@product.description) %>
+
+      <% if @product.image.size > 0 %>
+      <div class="product-image">
+        <%= image_tag @product.image.large.url %>
+      </div>
+      <% end %>
+
       <% if @product.categories.any? %>
         <p>Categories: <%= render @product.categories %></p>
       <% end %>
@@ -16,13 +23,6 @@
         Distributed by <%= link_to @product.user.username, user_path(@product.user) %>
       </small>
       <% end %>
-    </div>
-    <div class="purchase">
-      <%# if logged_in? && (current_user.is_dealer?(@product.user)) %>
-
-      <%# else %>
-
-      <%# end %>
     </div>
     <div class="product-actions">
       <% if logged_in? && (current_user == @product.user || current_user.admin?) %>

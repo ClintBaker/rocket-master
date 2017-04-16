@@ -17,10 +17,17 @@
           <div class="product-body">
             <h5>Retail Price: <%= "$#{product.price}" %></h5>
           </div>
+
+          <% if product.image.size > 0 %>
+          <div class="product-image">
+            <%= image_tag product.image.med.url %>
+          </div>
+          <% end %>
+
           <div class="product-body">
             <%= truncate(product.description, length: 100) %>
             <div class="product-meta-details">
-              <small><%= product.user.username if product.user %>
+              <small>Distributed by: <%= product.user.username if product.user %>
             </small>
             </div>
           </div>
