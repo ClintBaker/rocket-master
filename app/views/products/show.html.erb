@@ -17,6 +17,13 @@
       </small>
       <% end %>
     </div>
+    <div class="purchase">
+      <%# if logged_in? && (current_user.is_dealer?(@product.user)) %>
+
+      <%# else %>
+
+      <%# end %>
+    </div>
     <div class="product-actions">
       <% if logged_in? && (current_user == @product.user || current_user.admin?) %>
         <%= link_to 'Edit product', edit_product_path(@product), class: "btn btn-xs btn-primary" %>
