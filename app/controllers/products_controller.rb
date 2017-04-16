@@ -46,7 +46,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, category_ids: [])
+    params.require(:product).permit(:title, :description, :price, category_ids: [])
   end
 
   def set_product
