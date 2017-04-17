@@ -10,7 +10,7 @@
 
       <% if @product.image.size > 0 %>
       <div class="product-image">
-        <%= image_tag @product.image.large.url %>
+        <%= image_tag @product.image.large.url, class: "img img-thumbnail" %>
       </div>
       <% end %>
 
