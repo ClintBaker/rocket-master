@@ -44,6 +44,17 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     redirect_to products_path
   end
 
+  def add_order
+    @order = current_user.orders.last
+    current_user.friendships.build(friend_id: @friend.id)
+
+    if current_user.save
+      redirect_to my_friends_path, notice: "Friend was successfully added"
+    else
+      redirect_to my_friends_path, flash[:error] = "There was an error with adding user as friend"
+    end
+  end
+
   private
   def product_params
     params.require(:product).permit(:title, :description, :price, :image, :remove_image, category_ids: [])

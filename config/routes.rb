@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
 
+  resources :product_orders, except: [:edit, :show, :update]
   resources :products
 
   get 'signup', to: 'users#new'
